@@ -11,7 +11,7 @@ install:
   - python setup.py install
   - pip install -r requirements.txt
 
-script: pytest --cov=koalixcrm  --cov-report xml
+script: coverage xml
 
 # Deployment
 deploy:
