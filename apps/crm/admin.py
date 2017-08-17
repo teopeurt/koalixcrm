@@ -6,12 +6,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template.context_processors import csrf
 from django.utils.translation import ugettext as _
-from koalixcrm.accounting.models import Account
-from koalixcrm.accounting.models import Booking
+from old_koalixcrm.accounting.models import Account
+from old_koalixcrm.accounting.models import Booking
 from django.contrib import messages
-from koalixcrm.crm.views import *
-from koalixcrm.plugin import *
-from koalixcrm.crm.exceptions import *
+from old_koalixcrm.crm.views import *
+from old_koalixcrm.plugin import *
+from old_koalixcrm.crm.exceptions import *
 
 
 class ContractPostalAddress(admin.StackedInline):

@@ -1,0 +1,3 @@
+-r base_requirements.txt
+
+pytest-cov==2.5.1
