@@ -22,6 +22,7 @@ deploy:
   app: koalix-crm
   on:
     repo: scaphilo/koalixcrm
+    branch: feature/refactoringProjectStructure
   run:
   - "python manage.py collectstatic --settings=koalixcrm.settings.heroku_settings --noinput"
   - "python manage.py makemigrations --settings=koalixcrm.settings.heroku_settings"
