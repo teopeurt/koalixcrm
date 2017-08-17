@@ -9,7 +9,7 @@ before_install:
 
 install:
   - python setup.py install
-  - pip install -r heroku_requirements.txt
+  - pip install -r requirements.heroku_requirements.txt
 
 script: pytest --cov=koalixcrm --cov-report xml
 
@@ -23,9 +23,9 @@ deploy:
   on:
     repo: scaphilo/koalixcrm
   run:
-  - "python manage.py collectstatic --noinput"
-  - "python manage.py makemigrations"
-  - "python manage.py migrate"
+  - "python manage.py collectstatic --settings=koalixcrm.settings.heroku_settings --noinput"
+  - "python manage.py makemigrations --settings=koalixcrm.settings.heroku_settings"
+  - "python manage.py migrate --settings=koalixcrm.settings.heroku_settings"
   - "echo \"from django.contrib.auth.models import User; User.objects.create_superuser('Admin002', 'admin002@koalixcrm.com', 'admin002');\" | python sandbox/manage.py shell"
 
 after_success:
