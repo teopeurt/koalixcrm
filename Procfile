@@ -1,1 +1,1 @@
-web: sh -c 'gunicorn koalixcrm.wsgi'
+web: sh -c 'cd koalixcrm && gunicorn koalixcrm.wsgi'

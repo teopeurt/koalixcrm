@@ -135,4 +135,4 @@ FILEBROWSER_DIRECTORY = "/var/www/koalixcrm/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = "/media/"
 PROJECT_ROOT = '/var/www/koalixcrm/'
-PDF_OUTPUT_ROOT = '/var/www/test_koalixcrm/static/pdf/'
+PDF_OUTPUT_ROOT = '/var/www/koalixcrm/static/pdf/'
