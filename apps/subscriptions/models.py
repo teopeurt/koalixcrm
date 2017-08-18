@@ -3,8 +3,8 @@ from datetime import *
 from django.db import models
 from django.utils.translation import ugettext as _
 from filebrowser.fields import FileBrowseField
-from old_koalixcrm.crm import models as crmmodels
-from old_koalixcrm.subscriptions.const.events import *
+from apps.crm import models as crmmodels
+from apps.subscriptions.const.events import *
 
 
 class Subscription(models.Model):

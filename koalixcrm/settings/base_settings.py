@@ -39,17 +39,16 @@ PREREQUISITE_APPS = [
 ]
 
 PROJECT_APPS = [
-    'koalixcrm.crm',
-    'koalixcrm.accounting',
-    'koalixcrm.djangoUserExtension',
-    'koalixcrm.subscriptions',
-    'filebrowser'
+    'apps.crm',
+    'apps.accounting',
+    'apps.djangoUserExtension',
+    'apps.subscriptions',
 ]
 
 INSTALLED_APPS = PREREQUISITE_APPS + PROJECT_APPS
 
 KOALIXCRM_PLUGINS = (
-    'koalixcrm.subscriptions',
+    'apps.subscriptions',
 )
 
 MIDDLEWARE = [

@@ -8,10 +8,10 @@ from django.conf import settings
 from django.core import serializers
 from django.db import models
 from django.utils.translation import ugettext as _
-from old_koalixcrm.accounting.const.accountTypeChoices import *
-from old_koalixcrm.accounting.exceptions import NoObjectsToBeSerialzed
-from old_koalixcrm.accounting.exceptions import ProgrammingError
-from old_koalixcrm.crm.exceptions import UserExtensionMissing
+from apps.crm.exceptions import UserExtensionMissing
+from apps.accounting.const.accountTypeChoices import *
+from apps.accounting.exceptions import NoObjectsToBeSerialzed
+from apps.accounting.exceptions import ProgrammingError
 
 
 class AccountingPeriod(models.Model):

@@ -5,7 +5,7 @@ from wsgiref.util import FileWrapper
 from django.http import Http404
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from old_koalixcrm.accounting.models import *
+from apps.accounting.models import *
 
 
 def exportPDF(callingModelAdmin, request, whereToCreateFrom, whatToCreate, redirectTo):
