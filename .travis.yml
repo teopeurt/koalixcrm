@@ -8,7 +8,6 @@ before_install:
 
 
 install:
-  - echo "-r requirements/heroku_requirements.txt" > requirements.txt
   - python setup.py install
   - pip install -r requirements/heroku_requirements.txt
 
