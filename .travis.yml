@@ -9,7 +9,7 @@ before_install:
 
 install:
   - python setup.py install
-  - echo "-r requirements/heroku_requirements.txt" > 'requirements.txt'
+  - echo "-r requirements/heroku_requirements.txt" > requirements.txt
   - pip install -r requirements/heroku_requirements.txt
 
 script: pytest --cov=koalixcrm --cov-report xml
