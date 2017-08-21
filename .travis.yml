@@ -9,6 +9,7 @@ before_install:
 
 install:
   - python setup.py install
+  - echo "-r requirements/heroku_requirements.txt > 'requirements.txt'
   - pip install -r requirements/heroku_requirements.txt
 
 script: pytest --cov=koalixcrm --cov-report xml
@@ -28,6 +29,5 @@ deploy:
   - "python manage.py makemigrations --settings=koalixcrm.settings.heroku_settings"
   - "python manage.py migrate --settings=koalixcrm.settings.heroku_settings"
   - "echo \"from django.contrib.auth.models import User; User.objects.create_superuser('Admin002', 'admin002@koalixcrm.com', 'admin002');\" | python manage.py shell"
-  - "echo \"-r requirements/heroku_requirements.txt\" > 'requirements.txt'"
 after_success:
   - java -cp ~/codacy-coverage-reporter-assembly-latest.jar com.codacy.CodacyCoverageReporter -l Java -r coverage.xml
