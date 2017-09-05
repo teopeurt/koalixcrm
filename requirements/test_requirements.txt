@@ -1,2 +1,3 @@
 pytest-cov==2.5.1
 pytest-django==3.1.2
+pytest-codacy-coverage==1.3.6
