@@ -78,7 +78,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=300, verbose_name=_("Name"))
     dateofcreation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
     lastmodification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
-    lastmodifiedby = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True,
+    lastmodifiedby = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True}, blank=True,
                                        verbose_name=_("Last modified by"), editable=True)
 
     class Meta:
@@ -164,7 +164,7 @@ class Supplier(Contact):
 
 
 class Contract(models.Model):
-    staff = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
+    staff = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
                               related_name="db_relcontractstaff", null=True)
     description = models.TextField(verbose_name=_("Description"))
     defaultcustomer = models.ForeignKey(Customer, verbose_name=_("Default Customer"), null=True, blank=True)
@@ -172,7 +172,7 @@ class Contract(models.Model):
     defaultcurrency = models.ForeignKey(Currency, verbose_name=_("Default Currency"), blank=False, null=False)
     dateofcreation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
     lastmodification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
-    lastmodifiedby = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True},
+    lastmodifiedby = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True},
                                        verbose_name=_("Last modified by"), related_name="db_contractlstmodified")
 
     class Meta:
@@ -235,12 +235,12 @@ class PurchaseOrder(models.Model):
     lastCalculatedTax = models.DecimalField(max_digits=17, decimal_places=2, verbose_name=_("Last Calculted Tax"),
                                             blank=True, null=True)
     status = models.CharField(max_length=1, choices=PURCHASEORDERSTATUS)
-    staff = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
+    staff = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
                               related_name="db_relpostaff", null=True)
     currency = models.ForeignKey(Currency, verbose_name=_("Currency"), blank=False, null=False)
     dateofcreation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
     lastmodification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
-    lastmodifiedby = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True},
+    lastmodifiedby = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True},
                                        verbose_name=_("Last modified by"), related_name="db_polstmodified")
 
     def recalculatePrices(self, pricingDate):
@@ -341,12 +341,12 @@ class SalesContract(models.Model):
     lastCalculatedTax = models.DecimalField(max_digits=17, decimal_places=2, verbose_name=_("Last Calculted Tax"),
                                             blank=True, null=True)
     customer = models.ForeignKey(Customer, verbose_name=_("Customer"))
-    staff = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
+    staff = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
                               related_name="db_relscstaff", null=True)
     currency = models.ForeignKey(Currency, verbose_name=_("Currency"), blank=False, null=False)
     dateofcreation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
     lastmodification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
-    lastmodifiedby = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True},
+    lastmodifiedby = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True},
                                        verbose_name=_("Last modified by"), related_name="db_lstscmodified", null=True,
                                        blank="True")
 
@@ -660,7 +660,7 @@ class Product(models.Model):
     defaultunit = models.ForeignKey(Unit, verbose_name=_("Unit"))
     dateofcreation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
     lastmodification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
-    lastmodifiedby = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True},
+    lastmodifiedby = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True},
                                        verbose_name=_("Last modified by"), null=True, blank="True")
     tax = models.ForeignKey(Tax, blank=False)
     accoutingProductCategorie = models.ForeignKey('accounting.ProductCategorie',

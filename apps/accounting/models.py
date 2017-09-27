@@ -286,11 +286,11 @@ class Booking(models.Model):
     bookingReference = models.ForeignKey('crm.Invoice', verbose_name=_("Booking Reference"), null=True, blank=True)
     bookingDate = models.DateTimeField(verbose_name=_("Booking at"))
     accountingPeriod = models.ForeignKey(AccountingPeriod, verbose_name=_("AccountingPeriod"))
-    staff = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True,
+    staff = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True}, blank=True,
                               verbose_name=_("Reference Staff"), related_name="db_booking_refstaff")
     dateofcreation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
     lastmodification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
-    lastmodifiedby = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True,
+    lastmodifiedby = models.ForeignKey('settings.AUTH_USER_MODEL', limit_choices_to={'is_staff': True}, blank=True,
                                        verbose_name=_("Last modified by"), related_name="db_booking_lstmodified")
 
     def bookingDateOnly(self):
